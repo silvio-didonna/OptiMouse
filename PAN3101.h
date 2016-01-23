@@ -42,6 +42,8 @@ class PAN3101 : public OptiMouse
 	uint8_t dyOverflow() const;
 	void force_awake_mode(bool);
 	void toggle_awake_sleep (bool);
+	void toggle_led_shutter(bool);
+	void toggle_power_down(bool);
 };
 
 #endif

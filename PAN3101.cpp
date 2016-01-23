@@ -109,5 +109,29 @@ void PAN3101::toggle_awake_sleep(bool b)
 	writeRegister(Operation_Mode2, config);
 }
 
+void PAN3101::toggle_led_shutter(bool b)
+{
+	uint8_t config = readRegister(Operation_Mode2);
+	uint8_t mask = (1 << 3);
+	if(b) {
+		config |= mask;
+	} else {
+		config &= ~mask;
+	}
+	writeRegister(Operation_Mode2, config);
+}
+
+void PAN3101::toggle_power_down(bool b)
+{
+	uint8_t config = readRegister(Operation_Mode1);
+	uint8_t mask = (1 << 6);
+	if(b) {
+		config |= mask;
+	} else {
+		config &= ~mask;
+	}
+	writeRegister(Operation_Mode1, config);
+}
+
 // Private Methods /////////////////////////////////////////////////////////////
 
